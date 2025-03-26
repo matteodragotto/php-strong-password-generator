@@ -19,58 +19,75 @@ require_once './functions.php';
   <title>Generatore di password</title>
 </head>
 
-<body class="bg-primary-subtle">
-  <div class="container w-50 p-5">
+<body class="bg-primary-subtle min-vh-100">
+  <div class="min-vh-100 d-flex flex-column justify-content-center align-items-center">
+    <h1>STRONG PASSWORD GENERATOR</h1>
+    <div class="container w-50 p-2 border border-light bg-light rounded-4">
 
-    <div>
-      <form action="" method="GET">
+      <div class="d-flex flex-column">
+        <form action="" method="GET" class="d-flex flex-column h-100">
 
-        <div class="mb-3 d-flex align-items-center justify-content-around">
-          <label for="passwordNumber" class="form-label">Lunghezza della password</label>
-          <input type="number" id="passwordNumber" name="characters" class="form-control w-25" min=0 max=100>
-        </div>
+          <div class="mb-3 d-flex align-items-center justify-content-around">
+            <label for="passwordNumber" class="form-label">Lunghezza della password</label>
+            <input type="number" id="passwordNumber" name="characters" class="form-control w-25" min=0 max=100>
+          </div>
 
-        <div class="form-check ">
-          <label class="form-check-label" for="lowerCaseLetters">Lettere minuscole</label>
-          <input type="checkbox" class="form-check-input" id="lowerCaseLetters" name='lowerCaseLetters'>
-        </div>
+          <div class="d-flex justify-content-center align-items-center gap-2 mb-3">
 
-        <div class="form-check ">
-          <label class="form-check-label" for="upperCaseLetters">Lettere maiuscole</label>
-          <input type="checkbox" class="form-check-input" id="upperCaseLetters" name='upperCaseLetters'>
-        </div>
+            <div class="d-flex flex-column">
 
-        <div class="form-check ">
-          <label class="form-check-label" for="numbers">Numeri</label>
-          <input type="checkbox" class="form-check-input" id="numbers" name='numbers'>
-        </div>
+              <div class="form-check ">
+                <label class="form-check-label" for="lowerCaseLetters">Lettere minuscole</label>
+                <input type="checkbox" class="form-check-input" id="lowerCaseLetters" name='lowerCaseLetters'>
+              </div>
+              <div class="form-check ">
+                <label class="form-check-label" for="numbers">Numeri</label>
+                <input type="checkbox" class="form-check-input" id="numbers" name='numbers'>
+              </div>
+            </div>
 
-        <div class="form-check ">
-          <label class="form-check-label" for="symbols">Simboli</label>
-          <input type="checkbox" class="form-check-input" id="symbols" name='symbols'>
-        </div>
+            <div class="d-flex flex-column">
 
-        <div class="d-flex justify-content-center gap-5">
-          <button type="submit" class="btn btn-primary">Genera Password</button>
-          <button type="reset" class="btn btn-danger">Reset</button>
-        </div>
+              <div class="form-check ">
+                <label class="form-check-label" for="upperCaseLetters">Lettere maiuscole</label>
+                <input type="checkbox" class="form-check-input" id="upperCaseLetters" name='upperCaseLetters'>
+              </div>
 
-      </form>
+              <div class="form-check ">
+                <label class="form-check-label" for="symbols">Simboli</label>
+                <input type="checkbox" class="form-check-input" id="symbols" name='symbols'>
+              </div>
+
+            </div>
+
+
+          </div>
+
+
+          <div class="d-flex justify-content-center gap-5 mt-3">
+            <button type="submit" class="btn btn-primary">Genera Password</button>
+            <button type="reset" class="btn btn-danger">Reset</button>
+          </div>
+
+        </form>
+      </div>
+
+      <div class="d-flex flex-column justify-content-center mt-5">
+        <?php
+        if ($passwordLength > 0) {
+          $password = randomPassword($passwordLength);
+          $_SESSION['password'] = $password;
+          echo "<h2 class='text-center'>La password è stata generata</h2>";
+
+          echo "<a class='btn btn-primary' href='result.php'>Visualizza la tua password</a>";
+        }
+
+        ?>
+      </div>
+
+
+
     </div>
-    <div class="d-flex flex-column justify-content-center mt-5">
-      <?php
-      if ($passwordLength > 0) {
-        $password = randomPassword($passwordLength);
-        $_SESSION['password'] = $password;
-        echo "<h2 class='text-center'>La password è stata generata</h2>";
-
-        echo "<a class='btn btn-primary' href='result.php'>Visualizza la tua password</a>";
-      }
-
-      ?>
-    </div>
-
-
 
   </div>
 
