@@ -1,6 +1,6 @@
 <?php
 
-$passwordLength = $_GET['characters'];
+$passwordLength = isset($_GET['characters']) ? (int)$_GET['characters'] : 0;
 
 $password = '';
 

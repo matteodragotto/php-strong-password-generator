@@ -1,6 +1,7 @@
 <?php
+session_start();
 
-require './functions.php'
+require_once './functions.php';
 
 ?>
 
@@ -28,20 +29,25 @@ require './functions.php'
           <input type="number" id="passwordNumber" name="characters" class="form-control w-25" min=0 max=100>
         </div>
         <div class="d-flex justify-content-center gap-5">
-          <button type="submit" class="btn btn-primary">Genera password</button>
+          <button type="submit" class="btn btn-primary">Genera Password</button>
           <button type="reset" class="btn btn-danger">Reset</button>
         </div>
 
       </form>
     </div>
+    <div class="d-flex flex-column justify-content-center mt-5">
+      <?php
+      if ($passwordLength > 0) {
+        $password = randomPassword($passwordLength);
+        $_SESSION['password'] = $password;
+        echo "<h2 class='text-center'>La password è stata generata</h2>";
 
-    <?php
-    if ($passwordLength > 0) {
-      $password = randomPassword($passwordLength);
-      echo "La tua password è: $password";
-    }
+        echo "<a class='btn btn-primary' href='result.php'>Visualizza la tua password</a>";
+      }
 
-    ?>
+      ?>
+    </div>
+
 
 
   </div>
