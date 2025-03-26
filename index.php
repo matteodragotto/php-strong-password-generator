@@ -24,10 +24,32 @@ require_once './functions.php';
 
     <div>
       <form action="" method="GET">
+
         <div class="mb-3 d-flex align-items-center justify-content-around">
           <label for="passwordNumber" class="form-label">Lunghezza della password</label>
           <input type="number" id="passwordNumber" name="characters" class="form-control w-25" min=0 max=100>
         </div>
+
+        <div class="form-check ">
+          <label class="form-check-label" for="lowerCaseLetters">Lettere minuscole</label>
+          <input type="checkbox" class="form-check-input" id="lowerCaseLetters" name='lowerCaseLetters'>
+        </div>
+
+        <div class="form-check ">
+          <label class="form-check-label" for="upperCaseLetters">Lettere maiuscole</label>
+          <input type="checkbox" class="form-check-input" id="upperCaseLetters" name='upperCaseLetters'>
+        </div>
+
+        <div class="form-check ">
+          <label class="form-check-label" for="numbers">Numeri</label>
+          <input type="checkbox" class="form-check-input" id="numbers" name='numbers'>
+        </div>
+
+        <div class="form-check ">
+          <label class="form-check-label" for="symbols">Simboli</label>
+          <input type="checkbox" class="form-check-input" id="symbols" name='symbols'>
+        </div>
+
         <div class="d-flex justify-content-center gap-5">
           <button type="submit" class="btn btn-primary">Genera Password</button>
           <button type="reset" class="btn btn-danger">Reset</button>
