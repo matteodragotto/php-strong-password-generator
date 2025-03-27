@@ -16,12 +16,15 @@ session_start();
   <title>La tua password</title>
 </head>
 
-<body class="bg-primary-subtle">
-  <div class="container w-50 p-5">
+<body class="bg-primary-subtle min-vh-100">
+  <div class="min-vh-100 d-flex flex-column justify-content-center align-items-center">
+    <div class="container w-50 p-2 border border-light rounded-4 d-flex flex-column justify-content-center">
 
-    <h1>La tua password è: <?php echo $_SESSION['password'] ?></h1>
+      <h1>La tua password è: <br><?php echo $_SESSION['password'] ?></h1>
 
-    <a class="btn btn-primary" href="index.php">Torna indietro</a>
+      <a class="btn btn-primary" href="index.php">Torna indietro</a>
+    </div>
+
   </div>
 
 

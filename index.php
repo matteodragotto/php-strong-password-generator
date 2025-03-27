@@ -22,19 +22,21 @@ require_once './functions.php';
 <body class="bg-primary-subtle min-vh-100">
   <div class="min-vh-100 d-flex flex-column justify-content-center align-items-center">
     <h1>STRONG PASSWORD GENERATOR</h1>
-    <div class="container w-50 p-2 border border-light bg-light rounded-4">
+    <div class="container w-50 p-2 border border-light bg-light rounded-4 d-flex flex-column justify-content-center align-items-center">
 
-      <div class="d-flex flex-column">
-        <form action="" method="GET" class="d-flex flex-column h-100">
+      <div class="d-flex flex-column justify-content-center w-100">
+        <form action="" method="GET" class="d-flex h-100 justify-content-around align-items-center">
 
-          <div class="mb-3 d-flex align-items-center justify-content-around">
-            <label for="passwordNumber" class="form-label">Lunghezza della password</label>
-            <input type="number" id="passwordNumber" name="characters" class="form-control w-25" min=0 max=100>
-          </div>
 
-          <div class="d-flex justify-content-center align-items-center gap-2 mb-3">
 
-            <div class="d-flex flex-column">
+          <div class="d-flex justify-content-center align-items-center flex-column gap-1">
+
+            <div class="">
+              <label for="passwordNumber" class="form-label">Lunghezza della password</label>
+              <input type="number" id="passwordNumber" name="characters" class="form-control w-100" min=0 max=100>
+            </div>
+
+            <div class="d-flex gap-2">
 
               <div class="form-check ">
                 <label class="form-check-label" for="lowerCaseLetters">Lettere minuscole</label>
@@ -46,7 +48,7 @@ require_once './functions.php';
               </div>
             </div>
 
-            <div class="d-flex flex-column">
+            <div class="d-flex gap-2">
 
               <div class="form-check ">
                 <label class="form-check-label" for="upperCaseLetters">Lettere maiuscole</label>
@@ -64,7 +66,7 @@ require_once './functions.php';
           </div>
 
 
-          <div class="d-flex justify-content-center gap-5 mt-3">
+          <div class="d-flex flex-column justify-content-center gap-5">
             <button type="submit" class="btn btn-primary">Genera Password</button>
             <button type="reset" class="btn btn-danger">Reset</button>
           </div>
@@ -72,21 +74,23 @@ require_once './functions.php';
         </form>
       </div>
 
-      <div class="d-flex flex-column justify-content-center mt-5">
-        <?php
-        if ($passwordLength > 0) {
-          $password = randomPassword($passwordLength);
-          $_SESSION['password'] = $password;
-          echo "<h2 class='text-center'>La password è stata generata</h2>";
-
-          echo "<a class='btn btn-primary' href='result.php'>Visualizza la tua password</a>";
-        }
-
-        ?>
-      </div>
 
 
 
+
+    </div>
+
+    <div class="d-flex flex-column justify-content-center mt-5">
+      <?php
+      if ($passwordLength > 0) {
+        $password = randomPassword($passwordLength);
+        $_SESSION['password'] = $password;
+        echo "<h2 class='text-center'>La password è stata generata</h2>";
+
+        echo "<a class='btn btn-primary' href='result.php'>Visualizza la tua password</a>";
+      }
+
+      ?>
     </div>
 
   </div>
